@@ -29,9 +29,9 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         ImageView imageIv = findViewById(R.id.image_iv);
+        descriptionTv = findViewById(R.id.description_tv);
         originTv = findViewById(R.id.origin_tv);
         alsoTv = findViewById(R.id.also_known_tv);
-        descriptionTv = findViewById(R.id.description_tv);
         ingredientsTv = findViewById(R.id.ingredients_tv);
 
         Intent intent = getIntent();
@@ -77,10 +77,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
-        descriptionTv.setText(sandwich.getDescription().equals("") ? "No Info" : sandwich.getDescription());
-        originTv.setText(sandwich.getPlaceOfOrigin().equals("") ? "No Info" : sandwich.getDescription());
+        originTv.setText(sandwich.getPlaceOfOrigin().equals("") ? "No Info" : sandwich.getPlaceOfOrigin());
         appendListToTextView(alsoTv, sandwich.getAlsoKnownAs());
         appendListToTextView(ingredientsTv, sandwich.getIngredients());
+        descriptionTv.setText(sandwich.getDescription().equals("") ? "No Info" : sandwich.getDescription());
     }
 
     /*
