@@ -34,48 +34,62 @@ public class DetailActivity extends AppCompatActivity {
         alsoTv = findViewById(R.id.also_known_tv);
         ingredientsTv = findViewById(R.id.ingredients_tv);
 
+        /* Each Detail Activity should be launched with an intent.
+        * Get the intent. */
         Intent intent = getIntent();
+
+        // If the intent is null then close the app
         if (intent == null) {
             closeOnError();
         }
 
+        // Asserts that an object isn't null.
         assert intent != null;
+        // Get the list view position from the intent
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
+        // Check to see if there is a key for the intent
         if (position == DEFAULT_POSITION) {
-            // EXTRA_POSITION not found in intent
+            // EXTRA_POSITION not found in intent close the app
             closeOnError();
             return;
         }
 
+        // Get sandwich array from strings.xml
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
+        // create sandwich base from the array
         String json = sandwiches[position];
 
+        // Try parsing sandwich objects from the string base
         try {
             sandwich = JsonUtils.parseSandwichJson(json);
-        } catch (JSONException e) {
+        } catch (JSONException e) { // Catch JSON exception and print out log
             e.printStackTrace();
         }
+        // If the sandwich is null, close the app
         if (sandwich == null) {
-            // Sandwich data unavailable
             closeOnError();
             return;
         }
 
+        // set text views
         populateUI();
+
+        // Use a placeholder icon before the data is loaded
         Picasso.with(this)
                 .load(sandwich.getImage())
-                // Use this icon before the data is populated. If no image, use icon
                 .placeholder(R.mipmap.ic_launcher)
                 .into(imageIv);
 
         setTitle(sandwich.getMainName());
     }
 
+    // Call finish when your activity is done and should be closed.
     private void closeOnError() {
         finish();
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
+    // Use all the information from the sandwich objects to populate the user interface
     private void populateUI() {
         originTv.setText(sandwich.getPlaceOfOrigin().equals("") ? "No Info" : sandwich.getPlaceOfOrigin());
         appendListToTextView(alsoTv, sandwich.getAlsoKnownAs());
