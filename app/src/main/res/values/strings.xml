@@ -13,6 +13,7 @@
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
 
+    <!-- Array of Sandwich names -->
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
         <item>Bosna</item>
@@ -26,6 +27,7 @@
         <item>Vada Pav</item>
     </string-array>
 
+    <!-- Array of Sandwich Details -->
     <string-array name="sandwich_details">
         <item>{\"name\":{\"mainName\":\"Ham and cheese
             sandwich\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
