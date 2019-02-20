@@ -21,8 +21,9 @@ The entire project can be cloned using this link: https://github.com/keldavis/sa
 
 ## How to run this application
 - [Download or clone](#download) this repository
-- Open the it in [Android Studio](https://developer.android.com/studio/?gclid=CjwKCAiA767jBRBqEiwAGdAOr0K89dndm3zaI9rlEyfWdOLZD3PYVI1ZZo2lFpg5h5xtkccdXvAeHhoCP3QQAvD_BwE)
-- Press Play 
+- Open the app in [Android Studio](https://developer.android.com/studio/?gclid=CjwKCAiA767jBRBqEiwAGdAOr0K89dndm3zaI9rlEyfWdOLZD3PYVI1ZZo2lFpg5h5xtkccdXvAeHhoCP3QQAvD_BwE)
+- Press Play
+ 
 ![Play Preview](https://github.com/keldavis/sandwich-club/blob/master/screen_shots/play_preview.JPG)
 
 ## Project Overview
